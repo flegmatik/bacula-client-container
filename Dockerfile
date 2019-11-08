@@ -1,11 +1,11 @@
-FROM alpine:3.6
+FROM alpine:latest
 
 LABEL maintainer="Robert Plestenjak"
-LABEL version="7.4"
+LABEL version="latest"
 LABEL description="Bacula client"
 
 RUN apk update && \
-    apk add 'bacula-client<=7.4.7-r3'
+    apk add bacula-client
 
 CMD /usr/sbin/bacula-fd -v -f -c /etc/bacula-fd.conf
 

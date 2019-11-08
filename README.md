@@ -1,4 +1,4 @@
-# Bacula file daemon version 7.4
+# Bacula file daemon
 
 Dockerized Bacula file daemon (client)
 

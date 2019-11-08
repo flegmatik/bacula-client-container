@@ -1,0 +1,15 @@
+[Unit]
+Description=Bacula-FileDaemon, a Dockerized Backup-client
+After=network.target nss-lookup.target
+
+[Service]
+ExecStartPre=-/usr/bin/docker kill bacula-fd
+ExecStart=/usr/bin/docker run --rm --name bacula-fd -p 9102:9102 \
+  -v /etc/bacula-fd.conf:/etc/bacula-fd.conf bacula-fd:7.4
+ExecStop=-/usr/bin/docker stop bacula-fd
+IOSchedulingClass=idle
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
